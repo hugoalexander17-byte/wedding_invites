@@ -1,4 +1,4 @@
-// MENU MOBILE
+﻿// MENU MOBILE
 const menuToggle = document.getElementById("menuToggle");
 const mainNav = document.getElementById("mainNav");
 
@@ -52,9 +52,19 @@ const hideElement = element => {
 };
 
 const buildGuestLink = id => {
-  const origin = window.location.origin;
-  const basePath = window.location.pathname.replace(/admin\.html$/i, "index.html");
-  return `${origin}${basePath}?id=${encodeURIComponent(id)}`;
+  const projectBasePath = "/wedding_invites/";
+  const githubPagesOrigin = "https://hugoalexander17-byte.github.io";
+  const localHosts = new Set(["localhost", "127.0.0.1", "::1"]);
+  const host = window.location.hostname;
+  const isLocalHost = localHosts.has(host);
+  const isGitHubPages = host.endsWith("github.io");
+  const hasProjectPath = window.location.pathname.toLowerCase().includes(projectBasePath);
+  const basePath = isGitHubPages || hasProjectPath
+    ? projectBasePath
+    : window.location.pathname.replace(/[^/]*$/, "/");
+  const origin = isLocalHost ? githubPagesOrigin : window.location.origin;
+
+  return `${origin}${basePath}invite.html?id=${encodeURIComponent(id)}`;
 };
 
 const copyLink = url => {
@@ -198,7 +208,7 @@ const renderAdminPage = () => {
   }
 };
 
-const isAdminPage = /admin\.html$/i.test(window.location.pathname);
+const isAdminPage = Boolean(document.getElementById("adminCards"));
 if (isAdminPage) {
   renderAdminPage();
 } else {
@@ -263,7 +273,7 @@ function updateParallax() {
 window.addEventListener("scroll", updateParallax);
 window.addEventListener("load", updateParallax);
 
-// SUBIR IM�GENES A SLOTS
+// SUBIR IMÁGENES A SLOTS
 const imageUploads = document.querySelectorAll(".img-upload");
 
 imageUploads.forEach(input => {
@@ -517,6 +527,10 @@ if (backToTop) {
     });
   });
 }
+
+
+
+
 
 
 

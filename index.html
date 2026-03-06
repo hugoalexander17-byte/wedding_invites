@@ -3,417 +3,77 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nuestra Boda | Invitación Digital</title>
+  <title>Panel de invitaciones | Nuestra Boda</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
-  <audio id="bgAudio" src="audio/sleeping%20at%20last%20-%20turning%20page.mp3" autoplay loop></audio>
-
+<body class="admin-page">
   <!-- DECORATIVE BACKGROUND -->
   <div class="global-overlay"></div>
 
   <!-- FLOATING NAV -->
   <header class="topbar">
     <div class="brand">A & G</div>
-    <button class="menu-toggle" id="menuToggle">☰</button>
+    <button class="menu-toggle" id="menuToggle">&#9776;</button>
 
     <nav class="nav" id="mainNav">
-      <a href="#hero">Inicio</a>
-      <a href="#countdown">Cuenta regresiva</a>
-      <a href="#story">Nuestra historia</a>
-      <a href="#details">Detalles</a>
-      <a href="#timeline">Itinerario</a>
-      <a href="#dresscode">Dress code</a>
-      <a href="#gifts">Regalos</a>
-      <a href="#rsvp">RSVP</a>
+      <a href="invite.html">Invitaci&oacute;n</a>
+      <a href="#panel">Familias</a>
     </nav>
   </header>
 
   <!-- HERO -->
-  <section id="hero" class="section hero parallax-section" data-speed="0.12">
-    <video class="bg-video hero-video parallax-media" autoplay muted loop playsinline>
-      <source src="video/portrade.mp4" type="video/mp4">
-    </video>
+  <section class="section hero admin-hero parallax-section" data-speed="0.22">
+    <div class="parallax-bg default-hero-bg"></div>
     <div class="section-darken"></div>
 
     <div class="hero-content">
-      <p class="eyebrow">Con la bendición de Dios y nuestras familias</p>
-      <h1 class="names">Alexander <span>&</span> Génesis</h1>
-      <p class="hero-date">19 · 04 · 2026</p>
+      <p class="eyebrow">Gesti&oacute;n privada</p>
+      <h1 class="names">Panel de invitaciones</h1>
       <p class="hero-subtitle">
-        Queremos compartir con vos uno de los días más importantes de nuestra vida
+        Administra las familias invitadas, sus cupos y los enlaces personalizados
+        para compartir la invitaci&oacute;n.
       </p>
-
       <div class="hero-actions">
-        <a href="#rsvp" class="btn btn-primary">Confirmar asistencia</a>
-        <a href="#details" class="btn btn-secondary">Ver detalles</a>
+        <a href="#panel" class="btn btn-primary">Ver familias</a>
+        <a href="invite.html" class="btn btn-secondary">Abrir invitaci&oacute;n</a>
       </div>
     </div>
   </section>
 
-  <!-- GUEST ACCESS -->
-  <section id="guestAccessSection" class="section guest-access-section soft-section parallax-section" data-speed="0.16">
-    <div class="parallax-bg default-guest-bg"></div>
-    <div class="guest-light-overlay"></div>
-
-    <div class="section-upload-panel">
-      <label class="upload-btn">
-        Cambiar fondo invitaci&oacute;n
-        <input type="file" accept="image/*" class="bg-upload" data-target="guestAccessSection">
-      </label>
-    </div>
-    <div class="container narrow">
-      <div class="section-title-wrap">
-        <h2 class="section-title">Tu invitaci&oacute;n</h2>
-        <div class="divider"></div>
-      </div>
-
-      <div class="guest-card guest-elegant">
-        <div id="guestInfo">
-          <p class="guest-intro">Con mucha alegr&iacute;a reservamos esta invitaci&oacute;n para</p>
-          <h3 id="guestFamilyName" class="guest-family"></h3>
-          <p id="guestCupos" class="guest-cupos"></p>
-          <ul id="guestList" class="guest-list guest-list-minimal"></ul>
-        </div>
-
-        <div id="guestEmpty" class="guest-empty" hidden>
-          <h3>Invitaci&oacute;n pendiente</h3>
-          <p>Abre tu enlace personalizado para ver tu invitaci&oacute;n.</p>
-        </div>
-        <div id="guestError" class="guest-error" role="alert" hidden>
-          <h3>Invitación no encontrada</h3>
-          <p>Por favor verifica el enlace proporcionado.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- COUNTDOWN -->
-  <section id="countdown" class="section soft-section">
-    <div class="container narrow">
-      <div class="section-title-wrap">
-        <h2 class="section-title">Falta muy poco</h2>
-        <div class="divider"></div>
-      </div>
-
-      <div class="countdown-grid">
-        <div class="count-box">
-          <span id="days">00</span>
-          <small>Días</small>
-        </div>
-        <div class="count-box">
-          <span id="hours">00</span>
-          <small>Horas</small>
-        </div>
-        <div class="count-box">
-          <span id="minutes">00</span>
-          <small>Minutos</small>
-        </div>
-        <div class="count-box">
-          <span id="seconds">00</span>
-          <small>Segundos</small>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- STORY -->
-  <section id="story" class="section story-section parallax-section video-section" data-speed="0.18">
-    <div class="parallax-bg default-story-bg"></div>
-    <video class="bg-video" autoplay muted loop playsinline>
-      <source src="video/sdt.MP4" type="video/mp4">
-    </video>
-    <div class="video-overlay"></div>
-    <div class="section-light-overlay"></div>
-
-    <div class="section-upload-panel">
-      <label class="upload-btn">
-        Cambiar fondo historia
-        <input type="file" accept="image/*" class="bg-upload" data-target="story">
-      </label>
-    </div>
-
+  <!-- ADMIN PANEL -->
+  <section id="panel" class="section admin-panel-section soft-section">
     <div class="container">
       <div class="section-title-wrap">
-        <h2 class="section-title">Nuestra historia</h2>
+        <p class="section-kicker">Enlaces de familias</p>
+        <h2 class="section-title">Gesti&oacute;n de invitados</h2>
         <div class="divider"></div>
       </div>
 
-      <div class="story-grid story-single">
-                <div class="story-text story-overlay">
-          <p>
-            Hace m&aacute;s de diez a&ntilde;os nuestras vidas se cruzaron, y desde entonces hemos caminado juntos aprendiendo a conocernos, a crecer y a amarnos.
-          </p>
-          <p>
-            Con el paso del tiempo hemos compartido innumerables momentos: desaf&iacute;os, alegr&iacute;as, metas alcanzadas y sue&ntilde;os que poco a poco se han ido cumpliendo. En cada etapa hemos visto la mano de Dios guiando nuestros pasos y fortaleciendo nuestra relaci&oacute;n.
-          </p>
-          <p>
-            Desde nuestro bautismo hasta los caminos que cada uno ha recorrido en sus estudios y proyectos de vida, hemos sido testigos del crecimiento del otro y de c&oacute;mo Dios ha formado nuestra historia.
-          </p>
-          <p>
-            Hoy, despu&eacute;s de tantos a&ntilde;os juntos, queremos dar este paso con gratitud y confianza, haciendo un pacto delante de Dios y celebr&aacute;ndolo junto a nuestra familia y amigos.
-          </p>
-          <p>
-            Nos llena de alegr&iacute;a poder compartir este momento tan especial contigo.
-          </p>
-        </div>
+      <div class="admin-toolbar">
+        <p class="admin-note">Estos enlaces apuntan directamente a <strong>invite.html</strong>.</p>
+        <button id="adminToggle" class="btn admin-toggle" type="button">Ocultar panel</button>
+      </div>
+
+      <div id="adminPanelBody">
+        <div id="adminCards" class="admin-grid"></div>
       </div>
     </div>
   </section>
 
-  <!-- DETAILS -->
-  <section id="details" class="section details-section">
-    <div class="container">
-      <div class="section-title-wrap">
-        <h2 class="section-title">Detalles del evento</h2>
-        <div class="divider"></div>
-      </div>
-
-      <div class="details-grid">
-        <article class="info-card">
-          <h3>Ceremonia</h3>
-          <p><strong>Hora:</strong> 4:00 PM</p>
-          <p><strong>Lugar:</strong> Hacienda Nueva Country Club</p>
-          <p><strong>Direcci&oacute;n:</strong> GHQX+2W6, RN-18 25, San Jos&eacute; Pinula</p>
-          <a href="https://maps.app.goo.gl/qvLwQ2FcuWDfvCyHA" class="text-link" target="_blank" rel="noreferrer">Abrir ubicaci&oacute;n</a>
-        </article>
-
-        <article class="info-card">
-          <h3>Recepción</h3>
-          <p><strong>Hora:</strong> 6:00 PM</p>
-          <p><strong>Lugar:</strong> Hacienda Nueva Country Club</p>
-          <p><strong>Direcci&oacute;n:</strong> GHQX+2W6, RN-18 25, San Jos&eacute; Pinula</p>
-          <a href="https://maps.app.goo.gl/qvLwQ2FcuWDfvCyHA" class="text-link" target="_blank" rel="noreferrer">Abrir ubicaci&oacute;n</a>
-        </article>
-
-        <article class="info-card">
-          <h3>Mensaje</h3>
-          <p>
-            Nos llenará de alegría compartir con vos este momento tan importante.
-            Gracias por ser parte de nuestra historia.
-          </p>
-        </article>
-      </div>
-
-      <div class="map-box glass-card">
-        <h3>Mapa / Ubicaci&oacute;n</h3>
-        <p>Ubicaci&oacute;n de Hacienda Nueva Country Club.</p>
-
-        <div class="map-frame">
-          <iframe
-            src="https://www.google.com/maps?q=Hacienda+Nueva+Country+Club,+San+Jose+Pinula&output=embed"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TIMELINE -->
-  <section id="timeline" class="section timeline-section">
-    <div class="container narrow">
-      <div class="section-title-wrap">
-        <h2 class="section-title">Itinerario del d&iacute;a</h2>
-        <div class="divider"></div>
-      </div>
-
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-time">4:00 PM</div>
-          <div class="timeline-content">
-            <h3>Ceremonia</h3>
-            <p>Inicio de la ceremonia y bienvenida.</p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-time">5:30 PM</div>
-          <div class="timeline-content">
-            <h3>Sesión de fotos</h3>
-            <p>Un momento para capturar recuerdos especiales.</p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-time">6:00 PM</div>
-          <div class="timeline-content">
-            <h3>Recepción</h3>
-            <p>Ingreso al salón, brindis y bienvenida.</p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-time">7:30 PM</div>
-          <div class="timeline-content">
-            <h3>Cena</h3>
-            <p>Disfrutemos juntos una noche inolvidable.</p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-time">9:00 PM</div>
-          <div class="timeline-content">
-            <h3>Baile</h3>
-            <p>Celebración y música para compartir con todos.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DRESS CODE -->
-  <section id="dresscode" class="section dresscode-section parallax-section" data-speed="0.12">
-    <div class="parallax-bg default-dress-bg"></div>
-    <div class="section-darken soft-dark"></div>
-
-    <div class="section-upload-panel">
-      <label class="upload-btn">
-        Cambiar fondo dress code
-        <input type="file" accept="image/*" class="bg-upload" data-target="dresscode">
-      </label>
-    </div>
-
-    <div class="container narrow">
-      <div class="section-title-wrap light-text">
-        <h2 class="section-title">Dress Code</h2>
-        <div class="divider light-divider"></div>
-      </div>
-
-      <div class="dress-card glass-card dark-glass">
-        <h3>Formal / Etiqueta</h3>
-        <p>
-          Podés escribir aquí tu dress code exacto, colores sugeridos,
-          recomendaciones especiales o restricciones si las hubiera.
-        </p>
-
-        <div class="color-palette">
-          <span style="background:#d7c8ba;"></span>
-          <span style="background:#bfae9f;"></span>
-          <span style="background:#9b8c7d;"></span>
-          <span style="background:#f1ece6;"></span>
-          <span style="background:#7e8b74;"></span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GIFTS -->
-  <section id="gifts" class="section gifts-section">
-    <div class="container narrow">
-      <div class="section-title-wrap">
-        <h2 class="section-title">Lista de regalos</h2>
-        <div class="divider"></div>
-      </div>
-
-      <div class="gift-card glass-card">
-        <p>
-          Tu presencia es nuestro mejor regalo. Si deseas tener un detalle con nosotros,
-          puedes ver nuestra lista y elegir el regalo que prefieras.
-        </p>
-
-        <div class="gift-actions">
-          <a href="https://www.cemaco.com/list/AlexyGenesis19042026" class="btn btn-primary" target="_blank" rel="noreferrer">Ver lista</a>
-          <a href="https://www.cemaco.com/list/AlexyGenesis19042026" class="btn btn-secondary" target="_blank" rel="noreferrer">Abrir enlace</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- RSVP -->
-  <section id="rsvp" class="section rsvp-section parallax-section" data-speed="0.10">
-    <div class="parallax-bg default-rsvp-bg"></div>
-    <div class="section-darken"></div>
-
-    <div class="section-upload-panel">
-      <label class="upload-btn">
-        Cambiar fondo RSVP
-        <input type="file" accept="image/*" class="bg-upload" data-target="rsvp">
-      </label>
-    </div>
-
-    <div class="container narrow rsvp-inner">
-      <div class="section-title-wrap light-text">
-        <h2 class="section-title">Confirm&aacute; tu asistencia</h2>
-        <div class="divider light-divider"></div>
-      </div>
-
-      <div class="rsvp-card glass-card dark-glass">
-        <div class="rsvp-info" id="rsvpInfo">
-          <p class="rsvp-label">Invitaci&oacute;n reservada para</p>
-          <h3 id="rsvpFamily" class="rsvp-family"></h3>
-          <p id="rsvpCupos" class="rsvp-cupos"></p>
-          <div class="rsvp-guest-controls">
-            <button type="button" id="rsvpSelectAll" class="btn btn-secondary btn-sm">Seleccionar todos</button>
-          </div>
-          <ul id="rsvpGuestList" class="rsvp-guest-list"></ul>
-        </div>
-
-        <p class="rsvp-note">
-          Las invitaciones no son transferibles. Cada familia tiene asignado un n&uacute;mero
-          espec&iacute;fico de lugares. Si alguno de los invitados no podr&aacute; asistir,
-          por favor ind&iacute;calo en el mensaje de confirmaci&oacute;n.
-        </p>
-
-        <div class="rsvp-options" id="rsvpOptions">
-          <label class="rsvp-option">
-            <input type="radio" name="rsvpResponse" value="yes" class="rsvp-choice">
-            <span>S&iacute; asistiremos</span>
-          </label>
-          <label class="rsvp-option">
-            <input type="radio" name="rsvpResponse" value="no" class="rsvp-choice">
-            <span>No podremos asistir</span>
-          </label>
-        </div>
-
-        <p id="rsvpError" class="rsvp-error" hidden>Por favor selecciona si asistir&aacute;s o no antes de confirmar.</p>
-        <p id="rsvpUnavailable" class="rsvp-error" hidden>Invitaci&oacute;n no encontrada.</p>
-
-        <div class="form-actions">
-          <button type="button" id="rsvpSubmit" class="btn btn-primary">Confirmar por WhatsApp</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FINAL MESSAGE -->
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="container narrow">
-      <p class="footer-script">Gracias por ser parte de nuestro día</p>
-      <p class="footer-names">Alexander & Génesis</p>
+      <p class="footer-script">Gracias por cuidar cada detalle</p>
+      <p class="footer-names">Alexander & G&eacute;nesis</p>
       <p class="footer-date">19.04.2026</p>
     </div>
   </footer>
 
-  <button id="backToTop" class="back-to-top">↑</button>
+  <button id="backToTop" class="back-to-top">&#8593;</button>
 
   <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -322,20 +322,76 @@ bgUploads.forEach(input => {
 const bgAudio = document.getElementById("bgAudio");
 
 if (bgAudio) {
-  const tryPlay = () => {
-    bgAudio.play().catch(() => {});
+  bgAudio.preload = "auto";
+
+  const unlockButton = document.createElement("button");
+  unlockButton.type = "button";
+  unlockButton.className = "audio-unlock-btn";
+  unlockButton.textContent = "Activar musica";
+  unlockButton.hidden = true;
+  document.body.appendChild(unlockButton);
+
+  const hideUnlockButton = () => {
+    unlockButton.hidden = true;
+    unlockButton.classList.remove("show");
   };
 
-  window.addEventListener("load", tryPlay);
-
-  const resumeOnGesture = () => {
-    tryPlay();
-    document.removeEventListener("click", resumeOnGesture);
-    document.removeEventListener("touchstart", resumeOnGesture);
+  const showUnlockButton = () => {
+    unlockButton.hidden = false;
+    unlockButton.classList.add("show");
   };
 
-  document.addEventListener("click", resumeOnGesture);
-  document.addEventListener("touchstart", resumeOnGesture);
+  const removeGestureListeners = gestureHandler => {
+    document.removeEventListener("click", gestureHandler);
+    document.removeEventListener("touchstart", gestureHandler);
+    document.removeEventListener("touchend", gestureHandler);
+    document.removeEventListener("pointerdown", gestureHandler);
+    document.removeEventListener("keydown", gestureHandler);
+  };
+
+  const tryPlay = ({ fromGesture = false } = {}) => {
+    if (!bgAudio.paused) {
+      hideUnlockButton();
+      return;
+    }
+
+    bgAudio.play()
+      .then(() => {
+        hideUnlockButton();
+      })
+      .catch(() => {
+        if (fromGesture) return;
+        showUnlockButton();
+      });
+  };
+
+  const gestureHandler = () => {
+    tryPlay({ fromGesture: true });
+  };
+
+  window.addEventListener("load", () => tryPlay());
+  window.addEventListener("pageshow", () => tryPlay());
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") {
+      tryPlay();
+    }
+  });
+
+  document.addEventListener("click", gestureHandler, { passive: true });
+  document.addEventListener("touchstart", gestureHandler, { passive: true });
+  document.addEventListener("touchend", gestureHandler, { passive: true });
+  document.addEventListener("pointerdown", gestureHandler, { passive: true });
+  document.addEventListener("keydown", gestureHandler);
+
+  bgAudio.addEventListener("playing", () => {
+    hideUnlockButton();
+    removeGestureListeners(gestureHandler);
+  });
+
+  unlockButton.addEventListener("click", () => {
+    tryPlay({ fromGesture: true });
+  });
 }
 
 // RSVP POR WHATSAPP

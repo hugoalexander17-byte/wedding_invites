@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel de invitaciones | Nuestra Boda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="admin-page">
+  <!-- DECORATIVE BACKGROUND -->
+  <div class="global-overlay"></div>
+
+  <!-- FLOATING NAV -->
+  <header class="topbar">
+    <div class="brand">A & G</div>
+    <button class="menu-toggle" id="menuToggle">&#9776;</button>
+
+    <nav class="nav" id="mainNav">
+      <a href="index.html">Invitaci&oacute;n</a>
+      <a href="#panel">Familias</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="section hero admin-hero parallax-section" data-speed="0.22">
+    <div class="parallax-bg default-hero-bg"></div>
+    <div class="section-darken"></div>
+
+    <div class="hero-content">
+      <p class="eyebrow">Gesti&oacute;n privada</p>
+      <h1 class="names">Panel de invitaciones</h1>
+      <p class="hero-subtitle">
+        Administra las familias invitadas, sus cupos y los enlaces personalizados
+        para compartir la invitaci&oacute;n.
+      </p>
+      <div class="hero-actions">
+        <a href="#panel" class="btn btn-primary">Ver familias</a>
+        <a href="index.html" class="btn btn-secondary">Abrir invitaci&oacute;n</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADMIN PANEL -->
+  <section id="panel" class="section admin-panel-section soft-section">
+    <div class="container">
+      <div class="section-title-wrap">
+        <p class="section-kicker">Enlaces de familias</p>
+        <h2 class="section-title">Gesti&oacute;n de invitados</h2>
+        <div class="divider"></div>
+      </div>
+
+      <div class="admin-toolbar">
+        <p class="admin-note">Estos enlaces apuntan directamente a <strong>index.html</strong>.</p>
+        <button id="adminToggle" class="btn admin-toggle" type="button">Ocultar panel</button>
+      </div>
+
+      <div id="adminPanelBody">
+        <div id="adminCards" class="admin-grid"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container narrow">
+      <p class="footer-script">Gracias por cuidar cada detalle</p>
+      <p class="footer-names">Alexander & G&eacute;nesis</p>
+      <p class="footer-date">19.04.2026</p>
+    </div>
+  </footer>
+
+  <button id="backToTop" class="back-to-top">&#8593;</button>
+
+  <script src="script.js"></script>
+</body>
+</html>

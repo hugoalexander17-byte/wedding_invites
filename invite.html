@@ -65,6 +65,7 @@
         <input type="file" accept="image/*" class="bg-upload" data-target="guestAccessSection">
       </label>
     </div>
+
     <div class="container narrow">
       <div class="section-title-wrap">
         <h2 class="section-title">Tu invitaci&oacute;n</h2>
@@ -84,7 +85,7 @@
           <p>Abre tu enlace personalizado para ver tu invitaci&oacute;n.</p>
         </div>
         <div id="guestError" class="guest-error" role="alert" hidden>
-          <h3>Invitación no encontrada</h3>
+          <h3>Invitaci&oacute;n no encontrada</h3>
           <p>Por favor verifica el enlace proporcionado.</p>
         </div>
       </div>
@@ -102,7 +103,7 @@
       <div class="countdown-grid">
         <div class="count-box">
           <span id="days">00</span>
-          <small>Días</small>
+          <small>D&iacute;as</small>
         </div>
         <div class="count-box">
           <span id="hours">00</span>
@@ -129,13 +130,6 @@
     <div class="video-overlay"></div>
     <div class="section-light-overlay"></div>
 
-    <div class="section-upload-panel">
-      <label class="upload-btn">
-        Cambiar fondo historia
-        <input type="file" accept="image/*" class="bg-upload" data-target="story">
-      </label>
-    </div>
-
     <div class="container">
       <div class="section-title-wrap">
         <h2 class="section-title">Nuestra historia</h2>
@@ -143,7 +137,7 @@
       </div>
 
       <div class="story-grid story-single">
-                <div class="story-text story-overlay">
+        <div class="story-text story-overlay">
           <p>
             Hace m&aacute;s de diez a&ntilde;os nuestras vidas se cruzaron, y desde entonces hemos caminado juntos aprendiendo a conocernos, a crecer y a amarnos.
           </p>
@@ -180,15 +174,6 @@
           <p><strong>Direcci&oacute;n:</strong> GHQX+2W6, RN-18 25, San Jos&eacute; Pinula</p>
           <a href="https://maps.app.goo.gl/qvLwQ2FcuWDfvCyHA" class="text-link" target="_blank" rel="noreferrer">Abrir ubicaci&oacute;n</a>
         </article>
-
-        <article class="info-card">
-          <h3>Recepción</h3>
-          <p><strong>Hora:</strong> 6:00 PM</p>
-          <p><strong>Lugar:</strong> Hacienda Nueva Country Club</p>
-          <p><strong>Direcci&oacute;n:</strong> GHQX+2W6, RN-18 25, San Jos&eacute; Pinula</p>
-          <a href="https://maps.app.goo.gl/qvLwQ2FcuWDfvCyHA" class="text-link" target="_blank" rel="noreferrer">Abrir ubicaci&oacute;n</a>
-        </article>
-
         <article class="info-card">
           <h3>Mensaje</h3>
           <p>
@@ -214,7 +199,12 @@
   </section>
 
   <!-- TIMELINE -->
-  <section id="timeline" class="section timeline-section">
+  <section id="timeline" class="section timeline-section parallax-section video-section" data-speed="0.14">
+    <video class="bg-video parallax-media" autoplay muted loop playsinline>
+      <source src="video/proposal.mp4" type="video/mp4">
+    </video>
+    <div class="video-overlay timeline-white-tint"></div>
+
     <div class="container narrow">
       <div class="section-title-wrap">
         <h2 class="section-title">Itinerario del d&iacute;a</h2>
@@ -393,6 +383,7 @@
   <script src="script.js?v=20260306-2"></script>
 </body>
 </html>
+
 
 
 
